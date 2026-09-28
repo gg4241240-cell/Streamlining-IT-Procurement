@@ -1,0 +1,25 @@
+{
+  "flow_properties": {
+    "name": "Standard laptop task",
+    "scope": "Global",
+    "run_as": "System User",
+    "status": "Published"
+  },
+  "trigger": {
+    "type": "Service Catalog",
+    "table": "sc_req_item"
+  },
+  "actions": [
+    {
+      "step": 1,
+      "action_type": "Create Catalog Task",
+      "parameters": {
+        "request_item": "Trigger -> Requested Item Record",
+        "short_description": "Laptop need to Configured",
+        "description": "Laptop need to Configured",
+        "assignment_group": "Hardware",
+        "approval": "Approved"
+      }
+    }
+  ]
+}

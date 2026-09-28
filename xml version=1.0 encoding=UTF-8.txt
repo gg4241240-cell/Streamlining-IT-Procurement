@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2026-09-27 12:00:00">
+  <sys_remote_update_set action="INSERT_OR_UPDATE">
+    <name>Streamlining IT Procurement - Standard Laptop Task Automation</name>
+    <state>loaded</state>
+    <application_name>Global</application_name>
+    <description>Automated flow for standard laptop procurement, assigning catalog tasks to Hardware team upon approval.</description>
+  </sys_remote_update_set>
+
+  <!-- Flow Designer Payload Metadata -->
+  <sys_update_xml action="INSERT_OR_UPDATE">
+    <name>sys_hub_flow_standard_laptop_task</name>
+    <action>INSERT_OR_UPDATE</action>
+    <type>Flow Designer</type>
+    <target_name>Standard laptop task</target_name>
+    <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_hub_flow><name>Standard laptop task</name><active>true</active><run_as>system</run_as><description>Create Catalog task for hardware configuration</description></sys_hub_flow></record_update>]]></payload>
+  </sys_update_xml>
+
+  <!-- Service Catalog Process Engine Attachment -->
+  <sys_update_xml action="INSERT_OR_UPDATE">
+    <name>sc_cat_item_standard_laptop</name>
+    <action>INSERT_OR_UPDATE</action>
+    <type>Catalog Item</type>
+    <target_name>Standard Laptop</target_name>
+    <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sc_cat_item><name>Standard Laptop</name><workflow display_value="Standard laptop task">sys_hub_flow_standard_laptop_task</workflow></sc_cat_item></record_update>]]></payload>
+  </sys_update_xml>
+</unload>

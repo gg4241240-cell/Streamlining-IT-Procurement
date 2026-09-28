@@ -1,0 +1,44 @@
+# Streamlining IT Procurement: Automating Standard Laptop Orders with Flow Designer
+
+## 📌 Problem Statement
+The traditional IT procurement process for standard laptops lacks automation, leading to delays in hardware configuration, manual overhead, and potential oversight. This creates friction for onboarding employees and inefficient resource utilization in the IT department.
+
+## 🎯 Project Objective
+Automate the end-to-end laptop order lifecycle in ServiceNow using **Flow Designer** and **Service Catalog**, ensuring:
+1. Automatic assignment of configuration tasks to the **Hardware** team post-approval.
+2. Standardized Short Description & Description update (`Laptop need to Configured`).
+3. Reduction in turnaround time and manual errors.
+
+---
+
+## 🛠️ Implementation Steps
+
+### Milestone 1: Flow Creation (`Standard laptop task`)
+1. **Trigger:** `Service Catalog`
+2. **Action:** `Create Catalog Task`
+   - **Request Item:** Dynamically linked from Trigger (`Requested Item Record`)
+   - **Short Description:** `Laptop need to Configured`
+   - **Description:** `Laptop need to Configured`
+   - **Assignment Group:** `Hardware`
+   - **Approval:** `Approved`
+3. **Activation:** Saved and activated in the `Global` scope under System User context.
+
+### Milestone 2: Flow Assignment
+1. Navigated to **Maintain Items** -> Selected **Standard Laptop**.
+2. Updated **Process Engine** settings to attach the newly created Flow (`Standard laptop task`).
+
+### Milestone 3: End-to-End Testing & Verification
+1. Placed an order via **Service Catalog > Hardware > Standard Laptop**.
+2. Approved the generated Request Item (`sc_req_item`).
+3. Verified the automated generation of the **Catalog Task (`sc_task`)** pre-populated with:
+   - Assignment Group = Hardware
+   - State & Approval = Approved
+   - Short Description = `Laptop need to Configured`
+
+---
+
+## 📁 Repository Contents
+- `/flows/`: JSON schema representation of the Flow Designer execution logic.
+- `/update_set/`: ServiceNow Remote Update Set XML containing the metadata and logic.
+- `/docs/`: Detailed execution documentation.
+-

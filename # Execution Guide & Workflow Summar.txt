@@ -1,0 +1,14 @@
+# Execution Guide & Workflow Summary
+
+## Process Flow Chart
+1. **User Request**: User places an order for 'Standard Laptop' via Service Catalog.
+2. **Approval**: Request Item enters Approval phase (Manually approved or auto-approved).
+3. **Flow Execution**:
+   - `Standard laptop task` flow is triggered.
+   - Action `Create Catalog Task` executes.
+4. **Fulfillment Task**:
+   - Task assigned to **Hardware** group.
+   - Short description set to: `Laptop need to Configured`.
+   - Task state set to Approved.
+5. **Closure**: Hardware team configures the laptop and closes the task.
+6.
